@@ -15,6 +15,13 @@ class Reservation {
     this.startAt = startAt;
     this.notes = notes;
   }
+  set numGuests(amnt){
+    if(!amnt > 0) throw new Error("Must have at least 1 guest.");
+    this.numGuest = amnt;
+  }
+  get numGuests(){
+    return this._numGuests;
+  }
 
   /** formatter for startAt */
 
