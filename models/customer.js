@@ -34,7 +34,17 @@ class Customer {
     );
     return results.rows.map(c => new Customer(c));
   }
-
+  // search customer by name
+  static async searchByName(){
+    const results = await db.query(
+      `SELECT id,
+      first_name AS "firstName",
+      last_name AS "lastName",
+      FROM reservations
+      WHERE last_name=$1, first_name=$2`
+    );
+    return results.rows.map
+  }
   /** get a customer by ID. */
 
   static async get(id) {
